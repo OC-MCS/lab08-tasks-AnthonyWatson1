@@ -10,8 +10,10 @@ private:
    int numElements;           // Number of elements.
    bool isValid(int) const;   // Validates subscripts.
 public:
-   IntegerList(int);          // Constructor
+   IntegerList(int); // Constructor
+   ~IntegerList();
    void setElement(int, int); // Sets an element to a value
    int getElement(int) const; // Returns an element
    int getNumElements() const;
+   IntegerList operator=(const IntegerList& s1);
 };

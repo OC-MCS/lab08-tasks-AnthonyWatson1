@@ -15,6 +15,10 @@ IntegerList::IntegerList(int size)
       list[ndx] = 0;
 }
 
+IntegerList::~IntegerList()
+{
+	delete[]list;
+}
 
 //***********************************************************
 // isValid member function.                                 *
@@ -70,4 +74,12 @@ int IntegerList::getElement(int element) const
 int IntegerList::getNumElements() const
 {
 	return numElements;
+}
+
+IntegerList IntegerList::operator=(const IntegerList &s1)
+{
+	IntegerList *temp = new IntegerList(*s1.list);
+	delete list;
+	*s1.list = *temp->list;
+	return *this;
 }
